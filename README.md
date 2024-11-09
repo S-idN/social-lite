@@ -1,2 +1,2 @@
 # social-lite
-~~Fun little side project~~
+Fun little side project
