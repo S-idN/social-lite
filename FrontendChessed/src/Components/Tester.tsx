@@ -24,31 +24,37 @@ export default function Tester() {
   };
   onClick={() => checkBoxSet()}
   */
+  /*Key Items was formerly known as Today's Plan*/
   return (
     <>
-      <div className="flex flex-col">
-        {todoList.map((singleTodo, index) => (
-          <div key={index} className="inline-flex ">
-            <input
-              className="flex w-3/5 self-center p-4 my-4 text-xl text-indigo-400 bg-red-950 font-semibold opacity-80 placeholder-opacity-30 rounded-lg"
-              placeholder="Stay with meeeeeee"
-              value={singleTodo.todo}
-              onChange={(e) => setInputVal(e, index)}
-            />
-            {todoList.length - 1 === index && todoList.length < 4 && (
-              <>
-                <button onClick={handleClick} className="p-4">
-                  +
+      <div className="flex flex-col text-red-400 font-bold ">
+        <div className="self-start bg-rose-700 bg-opacity-30 m-4 p-8 w-96 rounded-lg text-2xl ">
+          Key Items
+        </div>
+        <div className="bg-rose-700 bg-opacity-30 m-4 min-w-80 rounded-lg">
+          {todoList.map((singleTodo, index) => (
+            <div key={index} className="inline-flex ">
+              <input
+                className="flex self-center placeholder-opacity-30 bg-indigo-700 max-w-80 bg-opacity-30 m-4 p-2 rounded-lg"
+                placeholder="Stay with meeeeeee"
+                value={singleTodo.todo}
+                onChange={(e) => setInputVal(e, index)}
+              />
+              {todoList.length - 1 === index && todoList.length < 4 && (
+                <>
+                  <button onClick={handleClick} className="p-4">
+                    +
+                  </button>
+                </>
+              )}
+              {todoList.length > 1 && (
+                <button onClick={() => remClick(index)} className="p-4">
+                  -
                 </button>
-              </>
-            )}
-            {todoList.length > 1 && (
-              <button onClick={() => remClick(index)} className="p-4">
-                -
-              </button>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
