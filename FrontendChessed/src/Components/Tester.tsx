@@ -1,9 +1,13 @@
 import { ChangeEvent, useState } from "react";
 
 export default function Tester() {
+  let hitLimitText = "";
   const [todoList, setTodoList] = useState([{ todo: "" }]);
   const handleClick = () => {
     setTodoList([...todoList, { todo: "" }]);
+    if (todolen == 4) {
+      hitLimitText = "That might be enough for the day!";
+    }
   };
   const remClick = (index: number) => {
     const list = [...todoList];
@@ -18,6 +22,7 @@ export default function Tester() {
     setTodoList(list);
     console.log(todoList[index]);
   };
+  let todolen = todoList.length;
   /*In case checkbox is needed
   const checkBoxSet = () => {
     console.log("This is important ig?");
@@ -28,21 +33,21 @@ export default function Tester() {
   return (
     <>
       <div className="flex flex-col text-red-400 font-bold ">
-        <div className="self-start bg-rose-700 bg-opacity-30 m-4 p-8 w-96 rounded-lg text-2xl ">
-          Key Items
+        <div className="flex justify-center bg-gradient-to-r from-violet-500/40 to-rose-500/40  m-4 p-6 w-96 rounded-lg text-3xl ">
+          {todolen} Key Items {hitLimitText}
         </div>
-        <div className="bg-rose-700 bg-opacity-30 m-4 min-w-80 rounded-lg">
+        <div className="bg-gradient-to-r from-purple-700/40 to-red-700/40 m-4 min-w-80 max-w-96 rounded-lg text-xl">
           {todoList.map((singleTodo, index) => (
             <div key={index} className="inline-flex ">
               <input
-                className="flex self-center placeholder-opacity-30 bg-indigo-700 max-w-80 bg-opacity-30 m-4 p-2 rounded-lg"
-                placeholder="Stay with meeeeeee"
+                className="flex self-center text-neutral-800 placeholder-opacity-30 bg-gradient-to-r from-purple-950/60 to-violet-950/80 max-w-80 opacity-80 m-4 p-2 rounded-lg"
+                placeholder=""
                 value={singleTodo.todo}
                 onChange={(e) => setInputVal(e, index)}
               />
               {todoList.length - 1 === index && todoList.length < 4 && (
                 <>
-                  <button onClick={handleClick} className="p-4">
+                  <button onClick={handleClick} className="p-2">
                     +
                   </button>
                 </>
