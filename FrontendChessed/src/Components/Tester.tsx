@@ -3,9 +3,10 @@ import { ChangeEvent, useState } from "react";
 export default function Tester() {
   let hitLimitText = "";
   const [todoList, setTodoList] = useState([{ todo: "" }]);
+
   const handleClick = () => {
     setTodoList([...todoList, { todo: "" }]);
-    if (todolen == 4) {
+    if (todolen > 3) {
       hitLimitText = "That might be enough for the day!";
     }
   };
