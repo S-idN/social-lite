@@ -2,6 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 import MainBody from "./Pages/MainBody";
 import { BrowserRouter, Route, Routes } from "react-router";
 import AuthPage from "./Pages/AuthPage";
+/*Main App*/
 
 export default function App() {
   return (
